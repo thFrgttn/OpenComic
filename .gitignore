@@ -2,9 +2,11 @@ node_modules/
 dist/
 scripts/builded
 scripts/tracking/_tracking-sites-keys.js
+config
 
 # OSX
 .DS_Store
 
 # Unrar Exe
 unrar
+

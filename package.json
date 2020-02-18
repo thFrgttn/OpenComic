@@ -1,340 +1,339 @@
 {
-	"name": "opencomic",
-	"productName": "OpenComic",
-	"version": "0.1.5",
-	"main": "scripts/main.js",
-	"keywords": [
-		"comics",
-		"manga",
-		"books"
-	],
-	"description": "Comic and manga reader",
-	"homepage": "https://github.com/ollm/OpenComic#readme",
-	"license": "GPL-3.0",
-	"author": {
-		"name": "Oleguer Llopart",
-		"email": "oleguer.llopart.mora@gmail.com",
-		"url": "https://github.com/ollm"
-	},
-	"contributors": [],
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/ollm/OpenComic.git"
-	},
-	"scripts": {
-		"start": "npm run prebuild && electron scripts/main.js",
-		"rebuild": "electron-rebuild -f -w sharp",
-		"rebuild2": "electron-builder node-gyp-rebuild",
-		"prebuild": "node scripts/build.js",
-		"watch": "nodemon --ignore 'dist/' --ignore scripts/builded --watch * --exec npm run start",
-		"build": "npm run prebuild && electron-builder build",
-		"build-dist": "npm run prebuild && electron-builder --x64 --linux deb rpm 7z && electron-builder --arm64 --linux deb rpm 7z && electron-builder --arm64 --mac 7z",
-		"build-linux": "npm run prebuild && electron-builder --x64 --linux deb rpm snap AppImage tar.gz",
-		"build-deb": "npm run prebuild && electron-builder --x64 --linux deb",
-		"build-rpm": "npm run prebuild && electron-builder --x64 --linux rpm",
-		"build-snap": "npm run prebuild && electron-builder --x64 --linux snap",
-		"build-appimage": "npm run prebuild && electron-builder --x64 --linux AppImage",
-		"build-tar": "npm run prebuild && electron-builder --x64 --linux tar.gz",
-		"build-zip": "npm run prebuild && electron-builder --x64 --linux zip",
-		"build-7z": "npm run prebuild && electron-builder --x64 --linux 7z",
-		"build-nsis": "npm run prebuild && electron-builder --win nsis",
-		"build-mac-tar": "npm run prebuild && electron-builder --mac tar.gz",
-		"build-mac-zip": "npm run prebuild && electron-builder --mac zip",
-		"build-mac-7z": "npm run prebuild && electron-builder --mac 7z",
-		"build-linux-arm": "npm run prebuild && electron-builder --arm64 --linux deb rpm snap AppImage tar.gz",
-		"build-deb-arm": "npm run prebuild && electron-builder --arm64 --linux deb",
-		"build-rpm-arm": "npm run prebuild && electron-builder --arm64 --linux rpm",
-		"build-snap-arm": "npm run prebuild && electron-builder --arm64 --linux snap",
-		"build-appimage-arm": "npm run prebuild && electron-builder --arm64 --linux AppImage",
-		"build-tar-arm": "npm run prebuild && electron-builder --arm64 --linux tar.gz",
-		"build-zip-arm": "npm run prebuild && electron-builder --arm64 --linux zip",
-		"build-7z-arm": "npm run prebuild && electron-builder --arm64 --linux 7z",
-		"snapcraft": "npm run prebuild && node ./scripts/snapcraft.js && cd dist/__snap-x64/ && snapcraft",
-		"snapcraft-arm": "npm run prebuild && node ./scripts/snapcraft.js && cd dist/__snap-arm64/ && snapcraft --target-arch=arm64",
-		"postinstall": "electron-builder install-app-deps"
-	},
-	"dependencies": {
-		"7zip-bin": "^4.1.0",
-		"electron-json-storage": "^4.1.8",
-		"electron-window-state": "^5.0.3",
-		"fs": "0.0.1-security",
-		"gm": "^1.23.1",
-		"handlebars": "^4.3.0",
-		"jimp": "^0.6.4",
-		"jquery": "^3.4.1",
-		"ldd": "^1.0.0",
-		"mime": "^2.4.4",
-		"node-7z": "^1.1.0",
-		"pdfjs-dist": "^2.2.228",
-		"request": "^2.88.0",
-		"sha1": "^1.1.1",
-		"sharp": "^0.23.4",
-		"tar-fs": "^2.0.0",
-		"unrar": "git+https://git@github.com/ollm/node-unrar.git",
-		"unzipper": "^0.10.1"
-	},
-	"devDependencies": {
-		"electron": "^7.1.10",
-		"electron-builder": "^22.3.1",
-		"electron-rebuild": "^1.8.8",
-		"js-yaml": "^3.13.1",
-		"node-yaml": "^4.0.1",
-		"webpack": "^4.41.4",
-		"nodemon": "^2.0.2"
-	},
-	"build": {
-		"appId": "org.opencomic.app",
-		"productName": "OpenComic",
-		"asar": true,
-		"files": [
-			"**/*",
-			"!themes/material-design/icons",
-			"!themes/*/templates",
-			"!templates",
-			"!images/icons",
-			"!images/icon.ico",
-			"!images/icon.png",
-			"templates/index.html",
-			"templates/about.html"
-		],
-		"asarUnpack": [
-			"node_modules/sharp",
-			"node_modules/node-7z",
-			"node_modules/7zip-bin",
-			"unrar",
-			"Pepper & Carrot"
-		],
-		"win": {
-			"target": [
-				"nsis"
-			],
-			"icon": "images/icon.ico"
-		},
-		"nsis": {
-			"oneClick": false,
-			"installerIcon": "images/icon.ico",
-			"uninstallerIcon": "images/icon.ico",
-			"installerHeaderIcon": "images/icon.ico"
-		},
-		"mac": {
-			"target": [
-				"dmg"
-			],
-			"icon": "images/icon.png",
-			"category": "public.app-category.graphics-design"
-		},
-		"linux": {
-			"target": [
-				"AppImage",
-				"deb",
-				"rpm",
-				"snap"
-			],
-			"icon": "images/icons",
-			"category": "Graphics",
-			"mimeTypes": [
-				"image/jpeg",
-				"image/pjpeg",
-				"image/png",
-				"image/apng",
-				"image/svg",
-				"image/svg+xml",
-				"image/gif",
-				"image/x-ms-bmp",
-				"image/bmp",
-				"image/x-icon",
-				"image/vnd.microsoft.icon",
-				"image/webp",
-				"application/zip",
-				"application/x-cbz",
-				"application/x-zip",
-				"application/x-zip-compressed",
-				"application/rar",
-				"application/x-cbr",
-				"application/x-rar",
-				"application/x-rar-compressed",
-				"application/7z",
-				"application/x-cb7",
-				"application/x-7z",
-				"application/x-7z-compressed",
-				"application/tar",
-				"application/x-cbt",
-				"application/x-tar",
-				"application/x-tar-compressed",
-				"application/pdf",
-				"application/x-bzpdf",
-				"application/x-gzpdf",
-				"text/directory",
-				"inode/directory",
-				"application/x-directory"
-			]
-		},
-		"deb": {
-			"depends": [
-				"gconf2",
-				"gconf-service",
-				"libnotify4",
-				"libappindicator1",
-				"libxtst6",
-				"libnss3",
-				"unrar"
-			]
-		},
-		"rpm": {
-			"depends": [
-				"gconf2",
-				"gconf-service",
-				"libnotify4",
-				"libappindicator1",
-				"libxtst6",
-				"libnss3",
-				"unrar"
-			]
-		},
-		"snap": {
-			"buildPackages": [
-				"unrar"
-			],
-			"stagePackages": [
-				"default",
-				"unrar"
-			],
-			"plugs": [
-				"default",
-				"removable-media"
-			]
-		},
-		"fileAssociations": [
-			{
-				"description": "Image JPG",
-				"ext": "jpg",
-				"role": "Viewer"
-			},
-			{
-				"description": "Image JPG",
-				"ext": "jpeg",
-				"role": "Viewer"
-			},
-			{
-				"description": "Image JPG",
-				"ext": "jif",
-				"role": "Viewer"
-			},
-			{
-				"description": "Image JPG",
-				"ext": "jfi",
-				"role": "Viewer"
-			},
-			{
-				"description": "Image JPG",
-				"ext": "jfif",
-				"role": "Viewer"
-			},
-			{
-				"description": "Image JPG",
-				"ext": "jfif-tbnl",
-				"role": "Viewer"
-			},
-			{
-				"description": "Image JPG",
-				"ext": "jpe",
-				"role": "Viewer"
-			},
-			{
-				"description": "Image PNG",
-				"ext": "png",
-				"role": "Viewer"
-			},
-			{
-				"description": "Image PNG",
-				"ext": "x-png",
-				"role": "Viewer"
-			},
-			{
-				"description": "Image PNG",
-				"ext": "apng",
-				"role": "Viewer"
-			},
-			{
-				"description": "Image SVG",
-				"ext": "svg",
-				"role": "Viewer"
-			},
-			{
-				"description": "Image SVG",
-				"ext": "svgz",
-				"role": "Viewer"
-			},
-			{
-				"description": "Image GIF",
-				"ext": "gif",
-				"role": "Viewer"
-			},
-			{
-				"description": "Image BMP",
-				"ext": "bmp",
-				"role": "Viewer"
-			},
-			{
-				"description": "Image BMP",
-				"ext": "dib",
-				"role": "Viewer"
-			},
-			{
-				"description": "Image ICO",
-				"ext": "ico",
-				"role": "Viewer"
-			},
-			{
-				"description": "Image WEBP",
-				"ext": "webp",
-				"role": "Viewer"
-			},
-			{
-				"description": "Compressed with ZIP",
-				"ext": "zip",
-				"role": "Viewer"
-			},
-			{
-				"description": "Compressed with ZIP",
-				"ext": "cbz",
-				"role": "Viewer"
-			},
-			{
-				"description": "Compressed with RAR",
-				"ext": "rar",
-				"role": "Viewer"
-			},
-			{
-				"description": "Compressed with RAR",
-				"ext": "cbr",
-				"role": "Viewer"
-			},
-			{
-				"description": "Compressed with 7z",
-				"ext": "7z",
-				"role": "Viewer"
-			},
-			{
-				"description": "Compressed with 7z",
-				"ext": "cb7",
-				"role": "Viewer"
-			},
-			{
-				"description": "Compressed with TAR",
-				"ext": "tar",
-				"role": "Viewer"
-			},
-			{
-				"description": "Compressed with TAR",
-				"ext": "cbt",
-				"role": "Viewer"
-			},
-			{
-				"description": "PDF Document",
-				"ext": "pdf",
-				"role": "Viewer"
-			}
-		]
-	}
+  "name": "opencomic",
+  "productName": "OpenComic",
+  "version": "0.1.5",
+  "main": "scripts/main.js",
+  "keywords": [
+    "comics",
+    "manga",
+    "books"
+  ],
+  "description": "Comic and manga reader",
+  "homepage": "https://github.com/ollm/OpenComic#readme",
+  "license": "GPL-3.0",
+  "author": {
+    "name": "Oleguer Llopart",
+    "email": "oleguer.llopart.mora@gmail.com",
+    "url": "https://github.com/ollm"
+  },
+  "contributors": [],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ollm/OpenComic.git"
+  },
+  "scripts": {
+    "start": "npm run prebuild && electron scripts/main.js",
+    "debug": "npm run prebuild && electron --inspect=5858 scripts/main.js",
+    "rebuild": "electron-rebuild -f -w sharp",
+    "rebuild2": "electron-builder node-gyp-rebuild",
+    "prebuild": "node scripts/build.js",
+    "watch": "nodemon --ignore 'dist/' --ignore scripts/builded --watch * --exec npm run start",
+    "build": "npm run prebuild && electron-builder build",
+    "build-dist": "npm run prebuild && electron-builder --x64 --linux deb rpm 7z && electron-builder --arm64 --linux deb rpm 7z && electron-builder --arm64 --mac 7z",
+    "build-linux": "npm run prebuild && electron-builder --x64 --linux deb rpm snap AppImage tar.gz",
+    "build-deb": "npm run prebuild && electron-builder --x64 --linux deb",
+    "build-rpm": "npm run prebuild && electron-builder --x64 --linux rpm",
+    "build-snap": "npm run prebuild && electron-builder --x64 --linux snap",
+    "build-appimage": "npm run prebuild && electron-builder --x64 --linux AppImage",
+    "build-tar": "npm run prebuild && electron-builder --x64 --linux tar.gz",
+    "build-zip": "npm run prebuild && electron-builder --x64 --linux zip",
+    "build-7z": "npm run prebuild && electron-builder --x64 --linux 7z",
+    "build-nsis": "npm run prebuild && electron-builder --win nsis",
+    "build-mac-tar": "npm run prebuild && electron-builder --mac tar.gz",
+    "build-mac-zip": "npm run prebuild && electron-builder --mac zip",
+    "build-mac-7z": "npm run prebuild && electron-builder --mac 7z",
+    "build-linux-arm": "npm run prebuild && electron-builder --arm64 --linux deb rpm snap AppImage tar.gz",
+    "build-deb-arm": "npm run prebuild && electron-builder --arm64 --linux deb",
+    "build-rpm-arm": "npm run prebuild && electron-builder --arm64 --linux rpm",
+    "build-snap-arm": "npm run prebuild && electron-builder --arm64 --linux snap",
+    "build-appimage-arm": "npm run prebuild && electron-builder --arm64 --linux AppImage",
+    "build-tar-arm": "npm run prebuild && electron-builder --arm64 --linux tar.gz",
+    "build-zip-arm": "npm run prebuild && electron-builder --arm64 --linux zip",
+    "build-7z-arm": "npm run prebuild && electron-builder --arm64 --linux 7z",
+    "snapcraft": "npm run prebuild && node ./scripts/snapcraft.js && cd dist/__snap-x64/ && snapcraft",
+    "snapcraft-arm": "npm run prebuild && node ./scripts/snapcraft.js && cd dist/__snap-arm64/ && snapcraft --target-arch=arm64",
+    "postinstall": "electron-builder install-app-deps"
+  },
+  "dependencies": {
+    "7zip-bin": "^4.1.0",
+    "electron-json-storage": "^4.1.8",
+    "electron-window-state": "^5.0.3",
+    "gm": "^1.23.1",
+    "handlebars": "^4.3.0",
+    "jimp": "^0.6.4",
+    "jquery": "^3.4.1",
+    "mime": "^2.4.4",
+    "node-7z": "^1.1.0",
+    "pdfjs-dist": "^2.2.228",
+    "request": "^2.88.0",
+    "sha1": "^1.1.1",
+    "sharp": "^0.23.4",
+    "tar-fs": "^2.0.0",
+    "unrar": "git+https://git@github.com/ollm/node-unrar.git",
+    "unzipper": "^0.10.1"
+  },
+  "devDependencies": {
+    "electron": "^7.1.10",
+    "electron-builder": "^22.3.1",
+    "electron-rebuild": "^1.8.8",
+    "js-yaml": "^3.13.1",
+    "node-yaml": "^4.0.1",
+    "webpack": "^4.41.4",
+    "nodemon": "^2.0.2"
+  },
+  "build": {
+    "appId": "org.opencomic.app",
+    "productName": "OpenComic",
+    "asar": true,
+    "files": [
+      "**/*",
+      "!themes/material-design/icons",
+      "!themes/*/templates",
+      "!templates",
+      "!images/icons",
+      "!images/icon.ico",
+      "!images/icon.png",
+      "templates/index.html",
+      "templates/about.html"
+    ],
+    "asarUnpack": [
+      "node_modules/sharp",
+      "node_modules/node-7z",
+      "node_modules/7zip-bin",
+      "unrar",
+      "Pepper & Carrot"
+    ],
+    "win": {
+      "target": [
+        "nsis"
+      ],
+      "icon": "images/icon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "installerIcon": "images/icon.ico",
+      "uninstallerIcon": "images/icon.ico",
+      "installerHeaderIcon": "images/icon.ico"
+    },
+    "mac": {
+      "target": [
+        "dmg"
+      ],
+      "icon": "images/icon.png",
+      "category": "public.app-category.graphics-design"
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb",
+        "rpm",
+        "snap"
+      ],
+      "icon": "images/icons",
+      "category": "Graphics",
+      "mimeTypes": [
+        "image/jpeg",
+        "image/pjpeg",
+        "image/png",
+        "image/apng",
+        "image/svg",
+        "image/svg+xml",
+        "image/gif",
+        "image/x-ms-bmp",
+        "image/bmp",
+        "image/x-icon",
+        "image/vnd.microsoft.icon",
+        "image/webp",
+        "application/zip",
+        "application/x-cbz",
+        "application/x-zip",
+        "application/x-zip-compressed",
+        "application/rar",
+        "application/x-cbr",
+        "application/x-rar",
+        "application/x-rar-compressed",
+        "application/7z",
+        "application/x-cb7",
+        "application/x-7z",
+        "application/x-7z-compressed",
+        "application/tar",
+        "application/x-cbt",
+        "application/x-tar",
+        "application/x-tar-compressed",
+        "application/pdf",
+        "application/x-bzpdf",
+        "application/x-gzpdf",
+        "text/directory",
+        "inode/directory",
+        "application/x-directory"
+      ]
+    },
+    "deb": {
+      "depends": [
+        "gconf2",
+        "gconf-service",
+        "libnotify4",
+        "libappindicator1",
+        "libxtst6",
+        "libnss3",
+        "unrar"
+      ]
+    },
+    "rpm": {
+      "depends": [
+        "gconf2",
+        "gconf-service",
+        "libnotify4",
+        "libappindicator1",
+        "libxtst6",
+        "libnss3",
+        "unrar"
+      ]
+    },
+    "snap": {
+      "buildPackages": [
+        "unrar"
+      ],
+      "stagePackages": [
+        "default",
+        "unrar"
+      ],
+      "plugs": [
+        "default",
+        "removable-media"
+      ]
+    },
+    "fileAssociations": [
+      {
+        "description": "Image JPG",
+        "ext": "jpg",
+        "role": "Viewer"
+      },
+      {
+        "description": "Image JPG",
+        "ext": "jpeg",
+        "role": "Viewer"
+      },
+      {
+        "description": "Image JPG",
+        "ext": "jif",
+        "role": "Viewer"
+      },
+      {
+        "description": "Image JPG",
+        "ext": "jfi",
+        "role": "Viewer"
+      },
+      {
+        "description": "Image JPG",
+        "ext": "jfif",
+        "role": "Viewer"
+      },
+      {
+        "description": "Image JPG",
+        "ext": "jfif-tbnl",
+        "role": "Viewer"
+      },
+      {
+        "description": "Image JPG",
+        "ext": "jpe",
+        "role": "Viewer"
+      },
+      {
+        "description": "Image PNG",
+        "ext": "png",
+        "role": "Viewer"
+      },
+      {
+        "description": "Image PNG",
+        "ext": "x-png",
+        "role": "Viewer"
+      },
+      {
+        "description": "Image PNG",
+        "ext": "apng",
+        "role": "Viewer"
+      },
+      {
+        "description": "Image SVG",
+        "ext": "svg",
+        "role": "Viewer"
+      },
+      {
+        "description": "Image SVG",
+        "ext": "svgz",
+        "role": "Viewer"
+      },
+      {
+        "description": "Image GIF",
+        "ext": "gif",
+        "role": "Viewer"
+      },
+      {
+        "description": "Image BMP",
+        "ext": "bmp",
+        "role": "Viewer"
+      },
+      {
+        "description": "Image BMP",
+        "ext": "dib",
+        "role": "Viewer"
+      },
+      {
+        "description": "Image ICO",
+        "ext": "ico",
+        "role": "Viewer"
+      },
+      {
+        "description": "Image WEBP",
+        "ext": "webp",
+        "role": "Viewer"
+      },
+      {
+        "description": "Compressed with ZIP",
+        "ext": "zip",
+        "role": "Viewer"
+      },
+      {
+        "description": "Compressed with ZIP",
+        "ext": "cbz",
+        "role": "Viewer"
+      },
+      {
+        "description": "Compressed with RAR",
+        "ext": "rar",
+        "role": "Viewer"
+      },
+      {
+        "description": "Compressed with RAR",
+        "ext": "cbr",
+        "role": "Viewer"
+      },
+      {
+        "description": "Compressed with 7z",
+        "ext": "7z",
+        "role": "Viewer"
+      },
+      {
+        "description": "Compressed with 7z",
+        "ext": "cb7",
+        "role": "Viewer"
+      },
+      {
+        "description": "Compressed with TAR",
+        "ext": "tar",
+        "role": "Viewer"
+      },
+      {
+        "description": "Compressed with TAR",
+        "ext": "cbt",
+        "role": "Viewer"
+      },
+      {
+        "description": "PDF Document",
+        "ext": "pdf",
+        "role": "Viewer"
+      }
+    ]
+  }
 }

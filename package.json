@@ -58,7 +58,6 @@
     "7zip-bin": "^4.1.0",
     "electron-json-storage": "^4.1.8",
     "electron-window-state": "^5.0.3",
-    "gm": "^1.23.1",
     "handlebars": "^4.3.0",
     "jimp": "^0.6.4",
     "jquery": "^3.4.1",

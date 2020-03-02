@@ -1,0 +1,14 @@
+<div class="content-view-list">
+  {{#each taggingComics}}
+  <div id="v-id{{index}}" onclick="tagging.tagComic({{index}})">
+    <div class="simple-list-image item-image">
+      <img class="tagging-thumbnail {{name}}" src="../images/icons/32x32.png" />{{name}}
+    </div>
+  </div>
+  {{else}}
+  <div class="content-empty">
+    {{language.comics.emptyFolder}}
+  </div>
+  {{/each}}
+  <br />
+</div>

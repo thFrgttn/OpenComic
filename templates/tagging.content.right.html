@@ -1,0 +1,13 @@
+<div class="tagging-body">
+  <div>
+    {{#with currentTaggingComic}}
+    <div class="right tag{{index}}">
+      <div>{{name}}</div>
+      <div>
+        <input id="input_seriesName" type="text" value="{{series}}" />
+        <button onclick="tagging.queryVolume()">Lookup</button>
+      </div>
+    </div>
+    {{/with}}
+  </div>
+</div>

@@ -1,6 +1,6 @@
 const request = require('request-promise-cache');
 
-const API_KEY = require('./config/APIKEY.js');
+const API_KEY = require('../../config/APIKEY.js');
 
 const BASE_URL = 'http://comicvine.gamespot.com/api/';
 
@@ -32,7 +32,7 @@ const requestVolumeDetails = (volumeID, callback) => {
     volumeID +
     '/?api_key=' +
     API_KEY +
-    '&format=json&field_list=name,start_year,publisher,image,count_of_issues,id';
+    '&format=json&field_list=name,start_year,publisher,image,count_of_issues,id,deck';
 
   request({ url, json: true })
     .then((body) => {
@@ -109,6 +109,10 @@ const requestIssueDetailsByVolumeIssue = (volumeID, issue_number, callback) => {
     });
 };
 
+module.exports = {
+  requestVolumeIDS
+};
+
 // requestVolumeIDS('Wonder Woman 001 (2016)', (error, body) => {
 //   if (error) {
 //     console.log(error);
@@ -141,10 +145,10 @@ const requestIssueDetailsByVolumeIssue = (volumeID, issue_number, callback) => {
 //   }
 // });
 
-requestIssueDetailsByVolumeIssue(91774, 1, (error, body) => {
-  if (error) {
-    console.log(error);
-  } else {
-    console.log(body);
-  }
-});
+// requestIssueDetailsByVolumeIssue(91774, 1, (error, body) => {
+//   if (error) {
+//     console.log(error);
+//   } else {
+//     console.log(body);
+//   }
+// });

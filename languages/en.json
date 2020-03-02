@@ -1,154 +1,158 @@
 {
-	"appName": "OpenComic",
-	"global": {
-		"and": "and",
-		"comics": "Comics",
-		"collection": "Collection",
-		"sort": {
-			"main": "Sort",
-			"name": "Name",
-			"number": "Number",
-			"nameNumber": "Name / Number",
-			"lastAdd": "Last add",
-			"lastReading": "Last reading",
-			"foldersFirst": "Folders first",
-			"invert": "Invert"
-		},
-		"view": {
-			"main": "View",
-			"module": "Grid",
-			"list": "List"
-		},
-		"contextMenu": {
-			"remove": "Remove"
-		},
-		"back": "Back",
-		"add": "Add",
-		"language": "Language",
-		"theme": "Theme",
-		"nightMode": "Night mode"
-	},
-	"comics": {
-		"continueReading": "Continue reading",
-		"emptyIndex": "There are no comics in this collection.",
-		"emptyFolder": "There is no compatible file in this folder."
-	},
-	"reading": {
-		"firstPage": "First page",
-		"previous": "Previous",
-		"next": "Next",
-		"lastPage": "Last page",
+  "appName": "OpenComic",
+  "global": {
+    "and": "and",
+    "comics": "Comics",
+    "collection": "Collection",
+    "sort": {
+      "main": "Sort",
+      "name": "Name",
+      "number": "Number",
+      "nameNumber": "Name / Number",
+      "lastAdd": "Last add",
+      "lastReading": "Last reading",
+      "foldersFirst": "Folders first",
+      "invert": "Invert"
+    },
+    "view": {
+      "main": "View",
+      "module": "Grid",
+      "list": "List"
+    },
+    "contextMenu": {
+      "remove": "Remove"
+    },
+    "back": "Back",
+    "add": "Add",
+    "language": "Language",
+    "theme": "Theme",
+    "nightMode": "Night mode"
+  },
+  "comics": {
+    "continueReading": "Continue reading",
+    "emptyIndex": "There are no comics in this collection.",
+    "emptyFolder": "There is no compatible file in this folder."
+  },
+  "reading": {
+    "firstPage": "First page",
+    "previous": "Previous",
+    "next": "Next",
+    "lastPage": "Last page",
 
-		"pages": {
-			"main": "Pages",
-			"slide": "Slide Reader",
-			"scroll": "Vertical Reader",
-			"adjustToWidth": "Adjust to width",
-			"margin": "Margin",
-			"marginHorizontal": "Horizontal margin",
-			"marginVertical": "Vertical margin",
-			"doublePage": "Double page",
-			"doNotApplyToHorizontals": "Do not apply to horizontals",
-			"readingDelaySkip": "Delay in changing comics",
-			"animationSpeed": "Animation speed",
-			"readingManga": "Reading manga (Inverted)",
-			"readingWebtoon": "Reading webtoon"
-		},
-		"magnifyingGlass": {
-			"main": "Magnifying glass",
-			"activate": "Activate",
-			"zoom": "Zoom",
-			"size": "Size",
-			"ratio": "Ratio",
-			"radius": "Radius"
-		},
-		"tracking": {
-			"main": "Tracking with sites",
-			"tracking": "Tracking",
-			"marked": "Marked",
-			"sites": "All sites",
-			"favoriteSites": "Favorite sites",
-			"emptyFavoriteSites": "No favorite site",
-			"problemChapter": "Chapter not detected",
-			"chapters": "Chapters",
-			"chapter": "Chapter",
-			"volumes": "Volumes",
-			"volume": "Volume"
-		},
-		"viewBookmarks": "View bookmarks",
-		"addBookmark": "Add bookmark",
-		"removeBookmark": "Remove bookmark",
-		"emptyBookmarks": "No bookmarks",
-		"currentReading": "Current reading"
-	},
-	"menu": {
-		"file": {
-			"main": "File",
-			"openFile": "Open file",
-			"openFolder": "Open folder",
-			"addFile": "Add file",
-			"addFolder": "Add folder",
-			"quit": "Quit"
-		},
-		"view": {
-			"main": "View",
-			"resetZoom": "Reset zoom",
-			"zoomIn": "Zoom in",
-			"zoomOut": "Zoom out",
-			"toggleFullScreen": "Full screen"
-		},
-		"goto": {
-			"main": "Goto"
-		},
-		"debug": {
-			"main": "Debug",
-			"reload": "Reload",
-			"forceReload": "Force reload",
-			"toggleDevTools": "Toggle DevTools"
-		},
-		"help": {
-			"main": "Help",
-			"about": "About OpenComic"
-		}
-	},
-	"dialog": {
-		"tracking": {
-			"getTokenHeader": "Sign in to {{siteName}} via token",
-			"getTokenInput": "The {{siteName}} token",
-			"invalidTokenHeader": "Invalid {{siteName}} token",
-			"resendToken": "Do you want to add the {{siteName}} token again?",
-			"serachIn": "Search in {{siteName}}",
-			"emptySearch": "No results found",
-			"setHeader": "Mark manually",
-			"setMessage": "If you wish you can manually mark the chapters",
-			"setWaitMessage": "You can do this now or wait for it to be automatically detected in another chapter.",
-			"setChapterNumber": "Mark until the chapter",
-			"setVolumeNumber": "Mark until the volume",
-			"activate": "Activate tracking"
-		}
-	},
-	"buttons": {
-		"cancel": "Cancel",
-		"ok": "Ok",
-		"undo": "Undo",
-		"dismiss": "Dismiss"
-	},
-	"error": {
-		"uncompress": {
-			"title": "Error when unzipping",
-			"message": "An error occurred while trying to unzip the file."
-		}
-	},
-	"about": {
-		"version": "Version",
-		"translatedBy": "Translated into English by",
-		"contributedBy": "Contributed by",
-		"translators": [
-			{
-				"name": "Oleguer Llopart",
-				"email": "oleguer.llopart.mora@gmail.com",
-				"url": "https://github.com/ollm"
-			}
-		]
-	}
+    "pages": {
+      "main": "Pages",
+      "slide": "Slide Reader",
+      "scroll": "Vertical Reader",
+      "adjustToWidth": "Adjust to width",
+      "margin": "Margin",
+      "marginHorizontal": "Horizontal margin",
+      "marginVertical": "Vertical margin",
+      "doublePage": "Double page",
+      "doNotApplyToHorizontals": "Do not apply to horizontals",
+      "readingDelaySkip": "Delay in changing comics",
+      "animationSpeed": "Animation speed",
+      "readingManga": "Reading manga (Inverted)",
+      "readingWebtoon": "Reading webtoon"
+    },
+    "magnifyingGlass": {
+      "main": "Magnifying glass",
+      "activate": "Activate",
+      "zoom": "Zoom",
+      "size": "Size",
+      "ratio": "Ratio",
+      "radius": "Radius"
+    },
+    "tracking": {
+      "main": "Tracking with sites",
+      "tracking": "Tracking",
+      "marked": "Marked",
+      "sites": "All sites",
+      "favoriteSites": "Favorite sites",
+      "emptyFavoriteSites": "No favorite site",
+      "problemChapter": "Chapter not detected",
+      "chapters": "Chapters",
+      "chapter": "Chapter",
+      "volumes": "Volumes",
+      "volume": "Volume"
+    },
+    "viewBookmarks": "View bookmarks",
+    "addBookmark": "Add bookmark",
+    "removeBookmark": "Remove bookmark",
+    "emptyBookmarks": "No bookmarks",
+    "currentReading": "Current reading"
+  },
+  "menu": {
+    "file": {
+      "main": "File",
+      "openFile": "Open file",
+      "openFolder": "Open folder",
+      "addFile": "Add file",
+      "addFolder": "Add folder",
+      "quit": "Quit"
+    },
+    "view": {
+      "main": "View",
+      "resetZoom": "Reset zoom",
+      "zoomIn": "Zoom in",
+      "zoomOut": "Zoom out",
+      "toggleFullScreen": "Full screen"
+    },
+    "goto": {
+      "main": "Goto"
+    },
+    "tagging": {
+      "main": "Tagging",
+      "openTagging": "Open Tagging"
+    },
+    "debug": {
+      "main": "Debug",
+      "reload": "Reload",
+      "forceReload": "Force reload",
+      "toggleDevTools": "Toggle DevTools"
+    },
+    "help": {
+      "main": "Help",
+      "about": "About OpenComic"
+    }
+  },
+  "dialog": {
+    "tracking": {
+      "getTokenHeader": "Sign in to {{siteName}} via token",
+      "getTokenInput": "The {{siteName}} token",
+      "invalidTokenHeader": "Invalid {{siteName}} token",
+      "resendToken": "Do you want to add the {{siteName}} token again?",
+      "serachIn": "Search in {{siteName}}",
+      "emptySearch": "No results found",
+      "setHeader": "Mark manually",
+      "setMessage": "If you wish you can manually mark the chapters",
+      "setWaitMessage": "You can do this now or wait for it to be automatically detected in another chapter.",
+      "setChapterNumber": "Mark until the chapter",
+      "setVolumeNumber": "Mark until the volume",
+      "activate": "Activate tracking"
+    }
+  },
+  "buttons": {
+    "cancel": "Cancel",
+    "ok": "Ok",
+    "undo": "Undo",
+    "dismiss": "Dismiss"
+  },
+  "error": {
+    "uncompress": {
+      "title": "Error when unzipping",
+      "message": "An error occurred while trying to unzip the file."
+    }
+  },
+  "about": {
+    "version": "Version",
+    "translatedBy": "Translated into English by",
+    "contributedBy": "Contributed by",
+    "translators": [
+      {
+        "name": "Oleguer Llopart",
+        "email": "oleguer.llopart.mora@gmail.com",
+        "url": "https://github.com/ollm"
+      }
+    ]
+  }
 }
